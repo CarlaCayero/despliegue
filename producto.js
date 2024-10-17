@@ -10,21 +10,39 @@ class Producto {
       return this.precio * this.cantidad;
     }
   }
-  
+  /**
+   *
+   *
+   * @class Carrito
+   */
   class Carrito {
     constructor() {
-      this.productos = [];
+      this.productos = []; // Inicializa el carrito como un array vacío.
     }
-  
-    agregarProducto(producto) {
+  /**
+   *  Agrega un producto al carrito.
+   *
+   * @param {*} producto - El producto a agregar, que debe tener un método calcularTotal().
+   * @memberof Carrito
+   */
+  agregarProducto(producto) {
       this.productos.push(producto);
     }
-  
-    calcularTotalCarrito() {
+  /**
+   * Calcula el total de todos los productos en el carrito.
+   *
+   * @return {*} - El total acumulado de los productos en el carrito.
+   * @memberof Carrito
+   */
+  calcularTotalCarrito() {
       return this.productos.reduce((total, producto) => total + producto.calcularTotal(), 0);
     }
-  
-    vaciarCarrito() {
+  /**
+   * Vacía el carrito eliminando todos los productos.
+   *
+   * @memberof Carrito
+   */
+  vaciarCarrito() {
       this.productos = [];
     }
   }

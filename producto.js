@@ -44,19 +44,41 @@ class Producto {
       this.productos = [];
     }
   }
-  
+
   class Usuario {
+    /**
+     * Creates an instance of Usuario.
+     * @param {*} nombre  - El nombre del usuario.
+     * @param {*} correo - El correo electrónico del usuario.
+     * @memberof Usuario
+     * Crea una instancia de Usuario.
+     */
     constructor(nombre, correo) {
       this.nombre = nombre;
       this.correo = correo;
       this.carrito = new Carrito();
     }
-  
-    agregarProductoAlCarrito(producto) {
+  /**
+   * Agrega un producto al carrito de compras del usuario.
+   * 
+   * Este método utiliza la instancia de Carrito para añadir un producto al 
+   * carrito del usuario.
+   * 
+   * @param {*} producto - El producto que se desea agregar al carrito.
+   * @memberof Usuario
+   */
+  agregarProductoAlCarrito(producto) {
       this.carrito.agregarProducto(producto);
     }
-  
-    finalizarCompra() {
+  /**
+   * Finaliza la compra del usuario.
+   * 
+   * Este método calcula el total de los productos en el carrito, imprime un mensaje 
+   * con el total de la compra, y vacía el carrito después de la compra.
+   * 
+   * @memberof Usuario
+   */
+  finalizarCompra() {
       const total = this.carrito.calcularTotalCarrito();
       console.log(`Usuario ${this.nombre} ha realizado una compra por un total de ${total}€`);
       this.carrito.vaciarCarrito();
